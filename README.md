@@ -1,2 +1,4 @@
-# posalfa_java_oo
-Pós Graduação Alfa 2017 - Aula Java OO
+# Pos WebDev Alfa 2017
+
+- Professor: Munif
+- Java Orientado a Objetos

@@ -2,3 +2,6 @@
 
 - Professor: Munif
 - Java Orientado a Objetos
+- Alunos:
+    - Renan Henrique Delmonico
+    - Eduardo Kawassaki Ferreira

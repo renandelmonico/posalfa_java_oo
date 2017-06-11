@@ -1,20 +1,26 @@
 package br.com.renandelmonico.oo;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  *
  * @author renandelmonico
  */
 public class Mapa {
 
+    static private Random r = new Random();
+    
     private static Mapa instancia=new Mapa();
     
     public static Mapa getInstancia(){
         return instancia;
     }
-
+    
     private Lugar lugarInicialJogador;
     private Lugar lugarInicialNPC;
-
+    private Lugar lugarInicialLiquidificador;
+    
     private Mapa() {
         criaLugares();
     }
@@ -40,6 +46,15 @@ public class Mapa {
         banheiro.setNorte(corredor);
         lugarInicialJogador = sala;
         lugarInicialNPC = cozinha;
+        
+        ArrayList<Lugar> lugares = new ArrayList();
+        lugares.add(copa);
+        lugares.add(corredor);
+        lugares.add(cozinha);
+        lugares.add(quarto);
+        lugares.add(banheiro);
+
+        lugarInicialLiquidificador = lugares.get(r.nextInt(lugares.size()));
     }
 
     public Lugar getLugarInicialJogador() {
@@ -48,6 +63,10 @@ public class Mapa {
 
     public Lugar getLugarInicialNPC() {
         return lugarInicialNPC;
+    }
+    
+    public Lugar getLugarInicialLiquidificador() {
+        return lugarInicialLiquidificador;
     }
 
 }

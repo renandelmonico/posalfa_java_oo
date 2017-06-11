@@ -17,17 +17,29 @@ public class Programa {
         Scanner scanner=new Scanner(System.in);
         Mapa mapa=Mapa.getInstancia();
 
-        Personagem jogador=new Jogador("Maria",mapa.getLugarInicialJogador());
+        System.out.println("Por favor, insira seu nome: ");
+        String nome = scanner.nextLine();
+
+        Personagem jogador=new Jogador(nome,mapa.getLugarInicialJogador());
         Personagem npc=new NPC(mapa.getLugarInicialNPC());
         
         
         System.out.println("---->"+Descritivel.NOME_JOGO);
+
+        int tentativas = 0;
         
         while (true){
             Lugar lc=jogador.getLugar();
             System.out.println(jogador.getNome()+"!");
             System.out.println("Voce está no(a):"+
-                    lc.getDescricao()+" com "+lc.getPersonagens());
+                    lc.getDescricao()+". Tente encontrar o liquidificador.");
+
+            if (jogador.getLugar().getDescricao() == mapa.getLugarInicialLiquidificador().getDescricao()) {
+                System.out.println("Você ganhou com "+tentativas+" tentativas! "+jogador.getNome());
+                break;
+            }
+            
+            tentativas++;
             
             System.out.println ("Mensagens:"+lc.getMensagens());
             
